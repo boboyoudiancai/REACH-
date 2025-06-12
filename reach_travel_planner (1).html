@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REACH旷野 - 个性化旅行规划助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'reach-green': '#10B981',
+                        'reach-light': '#F9FAFB',
+                        'reach-dark': '#111827',
+                        'reach-gold': '#F59E42',
+                        'reach-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        'brand': ['"Segoe UI"', '"PingFang SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+</head>
+<body class="bg-gradient-to-br from-reach-light to-white min-h-screen font-brand">
+    
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white/80 backdrop-blur sticky top-0 z-30 shadow-sm">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <div class="flex items-center space-x-3">
+                <img src="1.jpg" alt="REACH LOGO" class="w-10 h-10 rounded-full shadow-md">
+                <span class="text-2xl font-extrabold text-reach-green tracking-wider">REACH旷野</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-reach-dark font-semibold">
+                <a href="#" class="hover:text-reach-green transition" onclick="showPage('home-page');return false;">首页</a>
+                <a href="#" class="hover:text-reach-green transition">热门灵感</a>
+                <a href="#" class="hover:text-reach-green transition">品牌故事</a>
+                <a href="#" class="hover:text-reach-green transition">用户评价</a>
+                <a href="#" class="hover:text-reach-green transition">联系客服</a>
+            </div>
+            <button class="bg-reach-green hover:bg-reach-gold text-white font-bold px-6 py-2 rounded-xl shadow transition-colors duration-200" onclick="showPage('time-page')">立即定制</button>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <div id="home-page" class="page active">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center mb-12">
+                <div class="bg-reach-green rounded-full w-28 h-28 mx-auto mb-6 flex items-center justify-center shadow-xl border-4 border-white">
+                    <img src="1.jpg" alt="REACH LOGO" class="w-16 h-16 rounded-full">
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-reach-dark mb-4 tracking-tight">Hi~我是你的旅行AI小管家！</h1>
+                <div class="bg-reach-green text-white px-10 py-3 rounded-full inline-block mb-4 text-lg font-bold shadow">
+                    REACH旷野
+                </div>
+                <p class="text-reach-gray mb-2 text-lg">专注于为你定制个性化旅行方案</p>
+                <div class="text-reach-green font-semibold text-xl tracking-wider mb-2">
+                    人生是旷野 · 旅行无界限
+                </div>
+                <div class="text-sm text-reach-gray mt-2">
+                    -Remarkable Exploration Across Chinese Horizons-
+                </div>
+            </div>
+            <!-- 关于REACH旷野 详细介绍区块（主视觉+右侧多卡片分组美化版） -->
+            <div id="about-reach" class="max-w-6xl mx-auto mb-16 px-2 md:px-0">
+                <div class="bg-reach-light rounded-2xl shadow-xl flex flex-col md:flex-row overflow-hidden">
+                    <!-- 左侧主视觉 -->
+                    <div class="flex-1 flex flex-col items-center justify-center bg-white p-8 md:p-12 border-b md:border-b-0 md:border-r border-reach-light">
+                        <img src="1.jpg" alt="REACH LOGO" class="w-28 h-28 rounded-full shadow-lg mb-6">
+                        <div class="text-2xl font-extrabold text-reach-green mb-2">REACH旷野</div>
+                        <div class="text-reach-dark text-lg font-semibold mb-4 text-center">Remarkable Exploration Across China</div>
+                        <div class="bg-reach-green/10 text-reach-green rounded-xl px-4 py-2 text-center text-base font-medium shadow mb-2">以多语种短视频为笔，以全球为卷，让中国文旅故事抵达世界的每一个角落！</div>
+                    </div>
+                    <!-- 右侧多卡片分组 -->
+                    <div class="flex-[2] grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-10">
+                        <!-- 项目简介/愿景卡片 -->
+                        <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-2"><span class="text-2xl mr-2">🌏</span><span class="text-reach-green font-bold text-lg">项目简介</span></div>
+                            <div class="text-reach-dark text-base mb-2">"China Travel"成为全球热搜，免签政策便利来华，智能传媒时代重塑世界认知中国。REACH旷野以多语种短视频聚焦中国文旅国际传播，致力于在技术浪潮与文化传承中构建精准对话世界的桥梁。</div>
+                            <div class="flex items-center mt-auto"><span class="text-xl mr-2">🎯</span><span class="text-reach-gold font-bold">项目愿景</span></div>
+                            <div class="text-reach-gray text-sm">让中国文旅故事抵达世界每一个角落</div>
+                        </div>
+                        <!-- 团队与指导卡片 -->
+                        <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-2"><span class="text-2xl mr-2">👥</span><span class="text-reach-green font-bold text-lg">团队与指导</span></div>
+                            <ul class="list-disc pl-6 text-reach-gray text-base space-y-1 mb-2">
+                                <li>成员来自中传、北大、人大、北师大、民大、同济等高校，专业涵盖传媒、语言、AI、法学、会计</li>
+                                <li>指导：<span class="text-reach-dark font-semibold">文春英院长</span>、<span class="text-reach-dark font-semibold">丛芳君主任</span>（中国传媒大学外国语言文化学院）</li>
+                            </ul>
+                        </div>
+                        <!-- 荣誉与影响力卡片 -->
+                        <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-2"><span class="text-2xl mr-2">🏆</span><span class="text-reach-green font-bold text-lg">荣誉与影响力</span></div>
+                            <ul class="list-disc pl-6 text-reach-gray text-base space-y-1 mb-2">
+                                <li><span class="bg-reach-gold/20 text-reach-gold font-bold px-2 py-0.5 rounded">国家级立项</span>、2024挑战杯北京市铜奖、2025挑战杯北京市一等奖</li>
+                                <li>外研社国才杯全国金奖、联合国教科文组织优秀案例、中欧青年电影节国际传播奖</li>
+                                <li><span class="text-reach-green font-bold">全网粉丝1.2万</span>，<span class="text-reach-green font-bold">话题浏览量1200万</span>，签约KOL与留学生粉丝超<span class="text-reach-gold font-bold">500万</span></li>
+                            </ul>
+                        </div>
+                        <!-- 服务与创新卡片 -->
+                        <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-2"><span class="text-2xl mr-2">💼</span><span class="text-reach-green font-bold text-lg">服务与创新</span></div>
+                            <ul class="list-disc pl-6 text-reach-gray text-base space-y-1 mb-2">
+                                <li>为文旅局、宣传部、国际传播中心、景区、酒店等提供多语种视频与品牌活动策划</li>
+                                <li>与灵域映画文化传媒、云南值得吃食品等企业达成战略合作</li>
+                                <li>发起「REACH全球创作者计划」，一站式整合营销服务</li>
+                                <li><span class="text-reach-dark font-semibold">技术创新：</span>获屾山投资50万元，CoreSpeed Inc.技术指导，自主构建多语种语料库，研发「AutoVideo」「HelpVideo」大模型，Instagram上线智能旅行推荐"耶耶"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 品牌故事/优势 -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <div class="bg-white rounded-2xl shadow-2xl p-8 flex flex-col md:flex-row items-center md:space-x-8 min-h-[280px]">
+                    <div class="flex-1 mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold text-reach-dark mb-2">为什么选择REACH旷野？</h2>
+                        <ul class="text-reach-gray space-y-2 text-base">
+                            <li>🌟 <span class="font-semibold text-reach-green">AI智能定制</span>，一键生成专属行程</li>
+                            <li>🗺️ <span class="font-semibold text-reach-green">海量目的地灵感</span>，热门/小众全覆盖</li>
+                            <li>💬 <span class="font-semibold text-reach-green">7x24小时AI客服</span>，随时解答旅行疑问</li>
+                            <li>🤝 <span class="font-semibold text-reach-green">官方合作</span>，优选酒店/交通/保险</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <img src="1.jpg" alt="品牌故事" class="rounded-xl shadow-lg w-72">
+                    </div>
+                </div>
+            </div>
+            <!-- 热门灵感推荐 -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <h2 class="text-xl font-bold text-reach-dark mb-6 text-center">热门目的地灵感</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition min-h-[320px] h-full">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="w-32 h-32 object-cover rounded-xl mb-4">
+                        <div class="font-bold text-lg text-reach-dark mb-2">阿那亚·北戴河</div>
+                        <div class="text-reach-gray text-sm mb-4">文艺海岸、孤独图书馆、沙丘美术馆</div>
+                        <button class="bg-reach-green hover:bg-reach-gold text-white font-semibold px-6 py-2 rounded-lg shadow mt-auto">探索灵感</button>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition min-h-[320px] h-full">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" class="w-32 h-32 object-cover rounded-xl mb-4">
+                        <div class="font-bold text-lg text-reach-dark mb-2">云南·大理</div>
+                        <div class="text-reach-gray text-sm mb-4">苍山洱海、古城慢游、民族风情</div>
+                        <button class="bg-reach-green hover:bg-reach-gold text-white font-semibold px-6 py-2 rounded-lg shadow mt-auto">探索灵感</button>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition min-h-[320px] h-full">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80" class="w-32 h-32 object-cover rounded-xl mb-4">
+                        <div class="font-bold text-lg text-reach-dark mb-2">新疆·喀纳斯</div>
+                        <div class="text-reach-gray text-sm mb-4">湖光山色、秋色童话、边境风情</div>
+                        <button class="bg-reach-green hover:bg-reach-gold text-white font-semibold px-6 py-2 rounded-lg shadow mt-auto">探索灵感</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 用户评价/信任背书 -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <h2 class="text-xl font-bold text-reach-dark mb-6 text-center">用户真实评价</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center min-h-[220px] h-full">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-16 h-16 rounded-full mb-3 border-2 border-reach-green">
+                        <div class="font-semibold text-reach-dark mb-1">小林 · 北京</div>
+                        <div class="text-reach-gray text-sm mb-2">"AI规划超贴心，行程安排很合理，体验感满分！"</div>
+                        <div class="flex space-x-1 text-reach-gold mt-auto">★★★★★</div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center min-h-[220px] h-full">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 rounded-full mb-3 border-2 border-reach-green">
+                        <div class="font-semibold text-reach-dark mb-1">阿明 · 上海</div>
+                        <div class="text-reach-gray text-sm mb-2">"推荐的酒店和路线都很棒，客服响应很快！"</div>
+                        <div class="flex space-x-1 text-reach-gold mt-auto">★★★★★</div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center min-h-[220px] h-full">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-16 h-16 rounded-full mb-3 border-2 border-reach-green">
+                        <div class="font-semibold text-reach-dark mb-1">Lily · 广州</div>
+                        <div class="text-reach-gray text-sm mb-2">"一键生成行程太方便了，省心省力！"</div>
+                        <div class="flex space-x-1 text-reach-gold mt-auto">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 合作伙伴LOGO -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <h2 class="text-xl font-bold text-reach-dark mb-6 text-center">合作伙伴</h2>
+                <div class="flex flex-wrap justify-center items-stretch gap-8">
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="https://img1.baidu.com/it/u=1812345678,1234567890&fm=253&fmt=auto&app=138&f=JPEG?w=120&h=120" class="h-16 mx-auto mb-4" alt="那曲文旅局logo">
+                        <div class="text-base text-reach-gray font-semibold text-center">那曲市色尼区文旅局</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="1.jpg" class="h-16 mx-auto mb-4" alt="屾山投资logo">
+                        <div class="text-base text-reach-gray font-semibold text-center">屾山投资（海南）有限公司</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="https://corespeed.ai/logo.png" class="h-16 mx-auto mb-4" alt="CoreSpeed Inc. logo" onerror="this.src='1.jpg'">
+                        <div class="text-base text-reach-gray font-semibold text-center">CoreSpeed Inc.</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="1.jpg" class="h-16 mx-auto mb-4" alt="灵域映画logo">
+                        <div class="text-base text-reach-gray font-semibold text-center">灵域映画文化传媒</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="1.jpg" class="h-16 mx-auto mb-4" alt="值得吃食品logo">
+                        <div class="text-base text-reach-gray font-semibold text-center">云南值得吃食品</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="https://img2.baidu.com/it/u=2345678901,2345678901&fm=253&fmt=auto&app=138&f=JPEG?w=120&h=120" class="h-16 mx-auto mb-4" alt="德宏文旅局logo" onerror="this.src='1.jpg'">
+                        <div class="text-base text-reach-gray font-semibold text-center">云南德宏州文旅局</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="https://www.people.cn/img/logo.png" class="h-16 mx-auto mb-4" alt="人民日报logo" onerror="this.src='1.jpg'">
+                        <div class="text-base text-reach-gray font-semibold text-center">人民日报</div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center w-80 h-56 p-6 bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition mb-4">
+                        <img src="https://www.xinhuanet.com/favicon.ico" class="h-16 mx-auto mb-4" alt="新华社logo" onerror="this.src='1.jpg'">
+                        <div class="text-base text-reach-gray font-semibold text-center">新华社</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 进入规划流程按钮 -->
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h2 class="text-xl font-semibold text-center mb-8 text-reach-dark">
+                        下面开始规划你的旅行计划吧！
+                    </h2>
+                    <button onclick="showPage('time-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-gold text-white font-semibold py-4 px-6 rounded-xl transition-colors duration-200 text-lg shadow-lg">
+                        开始规划我的旅行
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 旅行时间选择页面 -->
+    <div id="time-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-2xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('home-page')" class="text-reach-gray hover:text-reach-green font-semibold">
+                            ← 返回
+                        </button>
+                        <div class="text-reach-green font-semibold">1/6</div>
+                    </div>
+                    <h2 class="text-xl font-bold mb-2 text-reach-dark">1. 旅行时间</h2>
+                    <p class="text-reach-gray mb-8">支持规划未来6个月的旅行计划</p>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-reach-dark mb-2">选择月份</label>
+                            <select id="travel-month" class="w-full border border-reach-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-reach-green bg-reach-light text-reach-dark">
+                                <option value="">选择月份</option>
+                                <option value="2025-07">2025年7月</option>
+                                <option value="2025-08">2025年8月</option>
+                                <option value="2025-09">2025年9月</option>
+                                <option value="2025-10">2025年10月</option>
+                                <option value="2025-11">2025年11月</option>
+                                <option value="2025-12">2025年12月</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-reach-dark mb-2">出行天数</label>
+                                <input type="number" id="travel-days" min="1" max="30" value="3" 
+                                       class="w-full border border-reach-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-reach-green bg-reach-light text-reach-dark">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-reach-dark mb-2">住宿晚数</label>
+                                <input type="number" id="travel-nights" min="0" max="29" value="2" 
+                                       class="w-full border border-reach-light rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-reach-green bg-reach-light text-reach-dark">
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="nextStep('departure-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-gold text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200 text-lg shadow-lg">
+                        点击确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 出发地点页面 -->
+    <div id="departure-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('time-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回上一项
+                        </button>
+                        <div class="text-reach-green font-semibold">2/6</div>
+                    </div>
+                    
+                    <h2 class="text-xl font-semibold mb-2">2. 出发地点</h2>
+                    <p class="text-gray-600 mb-8">若出发地无机场/火车站，将自动为您推荐最近地点/其他出行方式</p>
+                    
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">省</label>
+                                <select id="departure-province" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <option value="">选择省份</option>
+                                    <option value="北京">北京</option>
+                                    <option value="上海">上海</option>
+                                    <option value="广东">广东</option>
+                                    <option value="浙江">浙江</option>
+                                    <option value="江苏">江苏</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">市</label>
+                                <select id="departure-city" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <option value="">选择城市</option>
+                                    <option value="北京市">北京市</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">区/县</label>
+                                <select id="departure-district" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <option value="">选择区县</option>
+                                    <option value="朝阳区">朝阳区</option>
+                                    <option value="海淀区">海淀区</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">搜索并填写国外出发地</label>
+                            <input type="text" placeholder="输入国外城市名称" 
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextStep('preference-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200">
+                        点击确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 出行偏好页面 -->
+    <div id="preference-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('departure-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回上一项
+                        </button>
+                        <div class="text-reach-green font-semibold">3/6</div>
+                    </div>
+                    
+                    <h2 class="text-xl font-semibold mb-8">3. 出行偏好</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="font-medium text-gray-800 mb-4">交通偏好</h3>
+                            <div class="grid grid-cols-3 gap-3">
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="plane" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">✈️</div>
+                                        <div class="text-sm">飞机</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="train" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">🚄</div>
+                                        <div class="text-sm">动车/火车</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="metro" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">🚇</div>
+                                        <div class="text-sm">地铁</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="taxi" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">🚗</div>
+                                        <div class="text-sm">出租车</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="bus" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">🚌</div>
+                                        <div class="text-sm">巴士</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="checkbox" name="transport" value="other" class="sr-only">
+                                    <div class="text-center">
+                                        <div class="text-2xl mb-2">🚲</div>
+                                        <div class="text-sm">其他</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-medium text-gray-800 mb-4">您的出行侧重</h3>
+                            <div class="grid grid-cols-3 gap-3">
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="radio" name="priority" value="time" class="sr-only">
+                                    <div class="text-center text-sm">时间更短</div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="radio" name="priority" value="cost" class="sr-only">
+                                    <div class="text-center text-sm">路费更低</div>
+                                </label>
+                                <label class="flex items-center justify-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-reach-green has-[:checked]:border-reach-green has-[:checked]:bg-reach-light">
+                                    <input type="radio" name="priority" value="comfort" class="sr-only">
+                                    <div class="text-center text-sm">舒适度高</div>
+                                </label>
+                            </div>
+                            <button onclick="selectAllPreferences()" 
+                                    class="mt-4 text-reach-green hover:text-reach-dark text-sm underline">
+                                一键全选综合考量
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextStep('travelers-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200">
+                        点击确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 旅客信息页面 -->
+    <div id="travelers-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('preference-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回上一项
+                        </button>
+                        <div class="text-reach-green font-semibold">4/6</div>
+                    </div>
+                    
+                    <h2 class="text-xl font-semibold mb-8">4. 旅客信息</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-medium text-gray-800 mb-4">人数</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-2">成人</label>
+                                    <div class="flex items-center space-x-3">
+                                        <button type="button" onclick="changeCount('adults', -1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">-</button>
+                                        <span id="adults-count" class="text-lg font-semibold">2</span>
+                                        <button type="button" onclick="changeCount('adults', 1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-2">儿童（12岁以下）</label>
+                                    <div class="flex items-center space-x-3">
+                                        <button type="button" onclick="changeCount('children', -1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">-</button>
+                                        <span id="children-count" class="text-lg font-semibold">0</span>
+                                        <button type="button" onclick="changeCount('children', 1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-medium text-gray-800 mb-4">特殊要求 <span class="text-sm text-gray-500">*非必填</span></h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-gray-300 text-reach-green focus:ring-reach-green">
+                                    <span class="ml-2 text-sm">老人（60岁以上）</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-gray-300 text-reach-green focus:ring-reach-green">
+                                    <span class="ml-2 text-sm">残疾人</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-gray-300 text-reach-green focus:ring-reach-green">
+                                    <span class="ml-2 text-sm">孕妇</span>
+                                </label>
+                                <div>
+                                    <input type="text" placeholder="其他特殊要求..." 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextStep('budget-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200">
+                        点击确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 预算费用页面 -->
+    <div id="budget-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('travelers-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回上一项
+                        </button>
+                        <div class="text-reach-green font-semibold">5/6</div>
+                    </div>
+                    
+                    <h2 class="text-xl font-semibold mb-8">5. 预算费用</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">总预算 (人民币)</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="relative">
+                                    <input type="number" id="budget-min" placeholder="最低预算" 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <span class="absolute right-3 top-3 text-gray-500">元</span>
+                                </div>
+                                <div class="relative">
+                                    <input type="number" id="budget-max" placeholder="最高预算" 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <span class="absolute right-3 top-3 text-gray-500">元</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-6">
+                            <h3 class="font-medium text-gray-800 mb-4">细节预算 <span class="text-sm text-gray-500">*非必填</span></h3>
+                            <div class="space-y-4">
+                                <div class="relative">
+                                    <label class="block text-sm text-gray-600 mb-2">餐饮预算</label>
+                                    <input type="number" placeholder="每日餐饮预算" 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <span class="absolute right-3 top-9 text-gray-500">元</span>
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-sm text-gray-600 mb-2">交通预算</label>
+                                    <input type="number" placeholder="总交通预算" 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <span class="absolute right-3 top-9 text-gray-500">元</span>
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-sm text-gray-600 mb-2">住宿预算</label>
+                                    <input type="number" placeholder="每晚住宿预算" 
+                                           class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent">
+                                    <span class="absolute right-3 top-9 text-gray-500">元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextStep('additional-page')" 
+                            class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200">
+                        点击确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 补充信息页面 -->
+    <div id="additional-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="showPage('budget-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回上一项
+                        </button>
+                        <div class="text-reach-green font-semibold">6/6</div>
+                    </div>
+                    
+                    <h2 class="text-xl font-semibold mb-4">6. 补充信息</h2>
+                    <p class="text-gray-600 mb-8">让我知道你的更多旅行偏好吧！</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-4">你可以向我补充：</p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-6">
+                                <div>• 我需要下午出发...</div>
+                                <div>• 我需要慢节奏的旅行...</div>
+                                <div>• 我偏好打卡小红书推荐的景点...</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <textarea id="additional-info" 
+                                      placeholder="自由对话输入...回复"结束"也可直接生成你的专属计划" 
+                                      rows="6" 
+                                      class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-reach-green focus:border-transparent resize-none"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button onclick="generatePlan()" 
+                            class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-4 px-6 rounded-xl mt-8 transition-colors duration-200">
+                        点击生成计划
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 生成中页面 -->
+    <div id="generating-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="bg-white rounded-2xl shadow-xl p-12">
+                    <div class="mb-8">
+                        <div class="inline-flex space-x-2 text-4xl font-bold text-reach-green">
+                            <span class="animate-bounce" style="animation-delay: 0s">R</span>
+                            <span class="animate-bounce" style="animation-delay: 0.1s">E</span>
+                            <span class="animate-bounce" style="animation-delay: 0.2s">A</span>
+                            <span class="animate-bounce" style="animation-delay: 0.3s">C</span>
+                            <span class="animate-bounce" style="animation-delay: 0.4s">H</span>
+                        </div>
+                        <div class="text-2xl font-bold text-gray-800 mt-4">旷野</div>
+                    </div>
+                    
+                    <div class="text-lg text-gray-600 mb-8">专属计划生成中……</div>
+                    
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-reach-green h-2 rounded-full w-0 animate-pulse" id="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 计划结果页面 -->
+    <div id="plans-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">为您推荐的旅行方案</h2>
+                    <p class="text-gray-600">基于您的偏好，我们为您精心定制了以下方案</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <!-- 文艺打卡方案 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-48 bg-gradient-to-br from-pink-100 to-purple-100 relative">
+                            <img src="1.jpg" 
+                                 alt="文艺打卡" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-white rounded-full px-3 py-1 text-sm font-medium">
+                                🌸文艺打卡方案
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                                <span>网红机位</span>
+                                <span>仪式感</span>
+                                <span>文艺出片</span>
+                            </div>
+                            <div class="space-y-2 text-sm mb-6">
+                                <div class="flex justify-between">
+                                    <span>主题：</span>
+                                    <span class="text-gray-600">网红机位+艺术空间+仪式感体验</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>住宿：</span>
+                                    <span class="text-gray-600">四期民宿 2晚</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>交通：</span>
+                                    <span class="text-gray-600">北京→北戴河 T5601</span>
+                                </div>
+                            </div>
+                            <button onclick="selectPlan('artistic')" 
+                                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+                                选择并编辑这份方案
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 休闲治愈方案 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-48 bg-gradient-to-br from-green-100 to-blue-100 relative">
+                            <img src="1.jpg" 
+                                 alt="休闲治愈" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-white rounded-full px-3 py-1 text-sm font-medium">
+                                🍃休闲治愈方案
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                                <span>自然风光</span>
+                                <span>放松心情</span>
+                                <span>慢节奏</span>
+                            </div>
+                            <div class="space-y-2 text-sm mb-6">
+                                <div class="flex justify-between">
+                                    <span>主题：</span>
+                                    <span class="text-gray-600">自然疗愈+私密时光+慢节奏</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>住宿：</span>
+                                    <span class="text-gray-600">六期海景LOFT 2晚</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>交通：</span>
+                                    <span class="text-gray-600">北京→北戴河 T5601</span>
+                                </div>
+                            </div>
+                            <button onclick="selectPlan('healing')" 
+                                    class="w-full bg-reach-green hover:bg-reach-dark text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+                                选择并编辑这份方案
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 美食探索方案 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-48 bg-gradient-to-br from-orange-100 to-red-100 relative">
+                            <img src="1.jpg" 
+                                 alt="美食探索" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-white rounded-full px-3 py-1 text-sm font-medium">
+                                🦞美食探索方案
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                                <span>特色美食</span>
+                                <span>当地文化</span>
+                                <span>出海体验</span>
+                            </div>
+                            <div class="space-y-2 text-sm mb-6">
+                                <div class="flex justify-between">
+                                    <span>主题：</span>
+                                    <span class="text-gray-600">海鲜盛宴+在地体验+渔村文化</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>住宿：</span>
+                                    <span class="text-gray-600">二期海景公寓 2晚</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>交通：</span>
+                                    <span class="text-gray-600">北京→北戴河 T5601</span>
+                                </div>
+                            </div>
+                            <button onclick="selectPlan('food')" 
+                                    class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+                                选择并编辑这份方案
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button onclick="showPage('home-page')" 
+                            class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg mr-4 transition-colors duration-200">
+                        重新规划
+                    </button>
+                    <button onclick="showPage('detail-page')" 
+                            class="bg-reach-green hover:bg-reach-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                        查看详细行程
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详细方案页面 -->
+    <div id="detail-page" class="page hidden">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <button onclick="showPage('plans-page')" class="text-gray-500 hover:text-gray-700">
+                            ← 返回选择
+                        </button>
+                        <div class="text-reach-green font-semibold">🌸文艺打卡方案</div>
+                    </div>
+                    
+                    <div class="border-b pb-6 mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">你选择了该方案</h2>
+                        <p class="text-gray-600">向下滑动查看方案全部细节吧</p>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Day 1 -->
+                        <div class="border-l-4 border-reach-green pl-6">
+                            <div class="bg-reach-green text-white px-3 py-1 rounded-full inline-block text-sm font-medium mb-4">
+                                Day 1
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-semibold text-gray-800">北京 → 北戴河</h4>
+                                        <span class="text-sm text-gray-600">07:30 - 10:00</span>
+                                    </div>
+                                    <div class="text-sm text-gray-600 space-y-1">
+                                        <div>T5601次列车 • 2小时42分</div>
+                                        <div class="text-reach-green font-medium">68.5元/人×2=137元</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-semibold text-gray-800">入住四期民宿</h4>
+                                        <span class="text-sm text-gray-600">10:25 - 10:55</span>
+                                    </div>
+                                    <div class="text-sm text-gray-600 space-y-1">
+                                        <div>拼车至四期民宿 • 约30分钟</div>
+                                        <div class="text-reach-green font-medium">25元</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-semibold text-gray-800">阿那亚礼堂拍摄</h4>
+                                        <span class="text-sm text-gray-600">15:00 - 17:30</span>
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        三大机位打卡拍摄 • 网红机位 • 仪式感体验
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-semibold text-gray-800">晓渔村蒸汽海鲜</h4>
+                                        <span class="text-sm text-gray-600">19:30</span>
+                                    </div>
+                                    <div class="text-sm text-gray-600 space-y-1">
+                                        <div>大学生套餐</div>
+                                        <div class="text-reach-green font-medium">168元</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day 2 -->
+                        <div class="border-l-4 border-blue-400 pl-6">
+                            <div class="bg-blue-400 text-white px-3 py-1 rounded-full inline-block text-sm font-medium mb-4">
+                                Day 2
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">沙丘美术馆参观</h4>
+                                    <div class="text-sm text-gray-600">
+                                        艺术空间体验 • 建筑摄影 • 文艺氛围
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">租电动车沿海骑行</h4>
+                                    <div class="text-sm text-gray-600">
+                                        打卡海岸线日落 • 慢节奏体验
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">品尝晓渔村蒸汽海鲜</h4>
+                                    <div class="text-sm text-gray-600">
+                                        当地特色美食体验
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day 3 -->
+                        <div class="border-l-4 border-purple-400 pl-6">
+                            <div class="bg-purple-400 text-white px-3 py-1 rounded-full inline-block text-sm font-medium mb-4">
+                                Day 3
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">渔船日出体验</h4>
+                                    <div class="text-sm text-gray-600">
+                                        出海观日出 • 渔村文化体验
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">湿地骑行</h4>
+                                    <div class="text-sm text-gray-600">
+                                        自然风光 • 生态体验
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">海边市集采购</h4>
+                                    <div class="text-sm text-gray-600">
+                                        自制午餐 • 当地文化体验
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">孤独图书馆打卡</h4>
+                                    <div class="text-sm text-gray-600">
+                                        网红景点 • 文艺拍照 • 静谧时光
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t pt-6 mt-8">
+                        <div class="bg-reach-light rounded-lg p-6">
+                            <h3 class="font-semibold text-gray-800 mb-4">住宿信息</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-2">四期民宿「海岸美术馆」</div>
+                                    <div class="text-sm space-y-1">
+                                        <div>入住时间：7.10 - 7.12</div>
+                                        <div>房型：大床房</div>
+                                        <div>服务：早餐供应</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500 line-through">原价：598元/晚</div>
+                                    <div class="text-lg font-semibold text-reach-green">平台优惠：420元/晚</div>
+                                    <button class="bg-reach-green hover:bg-reach-dark text-white text-sm px-4 py-2 rounded-lg mt-2 transition-colors duration-200">
+                                        点击复制优惠码跳转预约平台
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <button onclick="showPage('plans-page')" 
+                                class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            重新选择方案
+                        </button>
+                        <button onclick="confirmBooking()" 
+                                class="flex-1 bg-reach-green hover:bg-reach-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            点击确认
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI对话与客服入口浮动按钮 -->
+    <div class="fixed bottom-8 right-8 z-50 flex flex-col space-y-4">
+        <button onclick="alert('即将上线，敬请期待！')" class="bg-reach-green hover:bg-reach-gold text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center text-2xl font-bold transition-all duration-200" title="AI对话">
+            🤖
+        </button>
+        <button onclick="alert('请联系客服：400-123-4567')" class="bg-reach-gold hover:bg-reach-green text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center text-2xl font-bold transition-all duration-200" title="联系客服">
+            💬
+        </button>
+    </div>
+
+    <footer class="bg-white border-t mt-16 py-8">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+            <div class="text-reach-gray text-sm mb-4 md:mb-0">© 2024 REACH旷野 | 京ICP备12345678号 | 隐私政策</div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-reach-green text-reach-gray text-sm">关于我们</a>
+                <a href="#" class="hover:text-reach-green text-reach-gray text-sm">商务合作</a>
+                <a href="#" class="hover:text-reach-green text-reach-gray text-sm">联系客服</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 全局变量
+        let currentPage = 'home-page';
+        let travelData = {};
+        let counts = { adults: 2, children: 0 };
+
+        // 页面切换函数
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+            document.getElementById(pageId).classList.add('active');
+            currentPage = pageId;
+        }
+
+        // 下一步函数
+        function nextStep(pageId) {
+            // 保存当前页面数据
+            saveCurrentPageData();
+            showPage(pageId);
+        }
+
+        // 保存当前页面数据
+        function saveCurrentPageData() {
+            switch(currentPage) {
+                case 'time-page':
+                    travelData.month = document.getElementById('travel-month').value;
+                    travelData.days = document.getElementById('travel-days').value;
+                    travelData.nights = document.getElementById('travel-nights').value;
+                    break;
+                case 'departure-page':
+                    travelData.province = document.getElementById('departure-province').value;
+                    travelData.city = document.getElementById('departure-city').value;
+                    travelData.district = document.getElementById('departure-district').value;
+                    break;
+                case 'preference-page':
+                    travelData.transport = Array.from(document.querySelectorAll('input[name="transport"]:checked')).map(el => el.value);
+                    travelData.priority = document.querySelector('input[name="priority"]:checked')?.value;
+                    break;
+                case 'travelers-page':
+                    travelData.adults = counts.adults;
+                    travelData.children = counts.children;
+                    break;
+                case 'budget-page':
+                    travelData.budgetMin = document.getElementById('budget-min').value;
+                    travelData.budgetMax = document.getElementById('budget-max').value;
+                    break;
+                case 'additional-page':
+                    travelData.additional = document.getElementById('additional-info').value;
+                    break;
+            }
+        }
+
+        // 人数调整函数
+        function changeCount(type, delta) {
+            if (counts[type] + delta >= 0) {
+                counts[type] += delta;
+                document.getElementById(type + '-count').textContent = counts[type];
+            }
+        }
+
+        // 一键选择所有偏好
+        function selectAllPreferences() {
+            document.querySelectorAll('input[name="transport"]').forEach(checkbox => {
+                checkbox.checked = true;
+                checkbox.closest('label').classList.add('border-reach-green', 'bg-reach-light');
+            });
+            
+            const comfortRadio = document.querySelector('input[name="priority"][value="comfort"]');
+            if (comfortRadio) {
+                comfortRadio.checked = true;
+                comfortRadio.closest('label').classList.add('border-reach-green', 'bg-reach-light');
+            }
+        }
+
+        // 生成计划函数
+        function generatePlan() {
+            saveCurrentPageData();
+            showPage('generating-page');
+            
+            // 模拟生成过程
+            let progress = 0;
+            const progressBar = document.getElementById('progress-bar');
+            const interval = setInterval(() => {
+                progress += Math.random() * 20;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        showPage('plans-page');
+                    }, 500);
+                }
+                progressBar.style.width = progress + '%';
+            }, 300);
+        }
+
+        // 选择方案函数
+        function selectPlan(planType) {
+            travelData.selectedPlan = planType;
+            showPage('detail-page');
+        }
+
+        // 确认预订函数
+        function confirmBooking() {
+            alert('预订确认成功！我们将为您安排专属的旅行体验。');
+        }
+
+        // 初始化页面交互
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加选择框样式切换
+            document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+                input.addEventListener('change', function() {
+                    const label = this.closest('label');
+                    if (this.checked) {
+                        label.classList.add('border-reach-green', 'bg-reach-light');
+                    } else {
+                        label.classList.remove('border-reach-green', 'bg-reach-light');
+                    }
+                });
+            });
+
+            // 添加天数和晚数联动
+            document.getElementById('travel-days').addEventListener('input', function() {
+                const days = parseInt(this.value);
+                const nightsInput = document.getElementById('travel-nights');
+                if (days > 0) {
+                    nightsInput.value = Math.max(0, days - 1);
+                }
+            });
+
+            document.getElementById('travel-nights').addEventListener('input', function() {
+                const nights = parseInt(this.value);
+                const daysInput = document.getElementById('travel-days');
+                if (nights >= 0) {
+                    daysInput.value = nights + 1;
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        
+        /* 自定义动画 */
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0,0,0);
+            }
+            40%, 43% {
+                transform: translate3d(0,-10px,0);
+            }
+            70% {
+                transform: translate3d(0,-5px,0);
+            }
+            90% {
+                transform: translate3d(0,-2px,0);
+            }
+        }
+        
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+        
+        /* 渐变背景 */
+        .bg-gradient-to-br {
+            background: linear-gradient(to bottom right, #F9FAFB, #ffffff);
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #111827;
+        }
+    </style>
+</body>
+</html>
+
+
